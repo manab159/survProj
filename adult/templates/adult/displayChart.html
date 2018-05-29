@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <script>
+    window.onload = function () {
+
+
+      var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        title: {
+          text: "Distribution of Male and Female"
+        },
+        data: [{
+          type: "pie",
+          startAngle: 240,
+          indexLabel: "{label} {y}",
+          dataPoints: [
+            { y: {{responseData.male}}, label: "Men" },
+            { y: {{responseData.female}}, label: "Women" },
+
+          ]
+        }]
+      });
+      chart.render();
+
+
+      var barchart = new CanvasJS.Chart("chartContainer2", {
+        animationEnabled: true,
+        title: {
+          text: "RelationShip Graph"
+        },
+        data: [{
+          type: "bar",
+
+          dataPoints: [
+            { y: {{responseData.Wife}}, label: "Wife" },
+            { y: {{responseData.OwnChild}}, label: "Own Child" },
+            { y: {{responseData.Husband}}, label: "Husband" },
+            { y: {{responseData.Notinfamily}}, label: "Not-in-family" },
+            { y: {{responseData.OtherRelatives}}, label: "Others Relatives" },
+            { y: {{responseData.Unmarried}}, label: "Unmarried" }
+          ]
+        }]
+      });
+      barchart.render();
+
+
+
+
+
+
+
+
+    }
+  </script>
+</head>
+
+<body>
+  <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+  <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  
+</body>
+
+</html>
